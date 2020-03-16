@@ -7,8 +7,9 @@ class Kategori(models.Model):
     def __str__(self):
         return self.nama
 
-# class Image(models.Model):
-#     file = models.ImageField(upload_to='Subartikel/Image')
+    class Meta:
+        ordering = ('nama',)
+        verbose_name_plural = 'kategori'
 
 
 class Artikel(models.Model):
@@ -30,6 +31,10 @@ class Artikel(models.Model):
     def save(self, *args, **kwargs):
         self.judul = self.judul.title()
         return super().save(*args, **kwargs)
+    
+    class Meta:
+        ordering = ('-id',)
+        verbose_name_plural = 'artikel'
 
 
 
@@ -44,3 +49,6 @@ class SubArtikel(models.Model):
     def save(self, *args, **kwargs):
         self.judul = self.judul.title();
         return super().save(*args, **kwargs)
+    
+    class Meta:
+        ordering = ('-id',)

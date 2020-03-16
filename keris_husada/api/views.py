@@ -10,9 +10,9 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         data['access'] = str(refresh.access_token)
 
         # Add extra responses here
-        data['id'] = self.user.id
-        data['role'] = self.user.user_type
-        data['groups'] = self.user.groups.values_list('name', flat=True)
+        # data['id'] = self.user.id
+        # data['role'] = self.user.user_type
+        # data['groups'] = self.user.groups.values_list('name', flat=True)
         return data
 
 class MyTokenObtainPairView(TokenObtainPairView):
